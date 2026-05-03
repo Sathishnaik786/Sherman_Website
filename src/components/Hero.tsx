@@ -1,77 +1,72 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Award, Clock } from 'lucide-react';
+import { ArrowRight, Shield, Award, Globe, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2532&auto=format&fit=crop"
-          alt="Premium fencing installation"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/40 to-foreground/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-foreground/10" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#020617]">
+      {/* Background with abstract gradients and mesh */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent/20 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/30 blur-[120px]" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 luxury-container text-center md:text-left pt-8 md:pt-0">
-        <div className="max-w-3xl mx-auto md:mx-0">
-          {/* Badge */}
+      <div className="relative z-10 luxury-container pt-20">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Status Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full px-4 py-2 mb-4 md:mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="inline-flex items-center gap-3 glass-effect rounded-full px-5 py-2 mb-10 border-white/10"
           >
-            <Award className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-primary-foreground">India's Most Trusted Fencing Company</span>
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Next-Gen Perimeter Security</span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-primary-foreground mb-4 md:mb-6"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.95]"
           >
-            Reliable Fencing Solutions
-            <span className="block text-accent">for Homes, Farms & Industries</span>
+            Enterprise <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald">Infrastructure</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg lg:text-xl text-primary-foreground/80 mb-8 md:mb-10 max-w-2xl"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-2xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            We design and install durable fencing systems using quality materials, skilled workmanship, and years of on-ground experience across India.
+            Securing critical assets with intelligent structural barriers and real-time sensory data. The new standard for global perimeter defense.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-5 justify-center"
           >
             <Link to="/contact">
-              <Button size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
-                Get a Free Site Visit
-                <ArrowRight className="w-5 h-5 ml-2" />
+              <Button size="lg" className="rounded-full px-10 h-16 text-lg bg-accent hover:bg-accent/90 text-white shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                Deploy Solution
+                <ArrowRight className="w-5 h-5 ml-3" />
               </Button>
             </Link>
-            <Link to="/projects">
+            <Link to="/solutions">
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white text-black hover:bg-white hover:text-primary"
+                className="rounded-full px-10 h-16 text-lg border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
               >
-                View Our Projects
+                Technical Spec
               </Button>
             </Link>
           </motion.div>
@@ -80,55 +75,24 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-10 mt-12 md:mt-16 pt-8 md:pt-10 border-t border-primary-foreground/20"
+            transition={{ duration: 1, delay: 1 }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-24 pt-12 border-t border-white/5"
           >
-            <div className="flex items-center gap-3 min-w-[140px]">
-              <div className="flex items-center justify-center bg-accent/20 p-2 rounded-full">
-                <Shield className="w-5 h-5 text-accent" />
-              </div>
-              <div>
-                <div className="text-xl md:text-2xl font-serif font-bold text-primary-foreground">500+</div>
-                <div className="text-xs md:text-sm text-primary-foreground/70 whitespace-nowrap">Projects Completed</div>
-              </div>
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-bold text-white mb-1">500+</div>
+              <div className="text-xs uppercase tracking-widest text-slate-500 font-bold">Deployments</div>
             </div>
-            <div className="flex items-center gap-3 min-w-[140px]">
-              <div className="flex items-center justify-center bg-accent/20 p-2 rounded-full">
-                <Clock className="w-5 h-5 text-accent" />
-              </div>
-              <div>
-                <div className="text-xl md:text-2xl font-serif font-bold text-primary-foreground">18+</div>
-                <div className="text-xs md:text-sm text-primary-foreground/70 whitespace-nowrap">Years Experience</div>
-              </div>
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-bold text-white mb-1">Global</div>
+              <div className="text-xs uppercase tracking-widest text-slate-500 font-bold">Certification</div>
             </div>
-            <div className="flex items-center gap-3 min-w-[140px]">
-              <div className="flex items-center justify-center bg-accent/20 p-2 rounded-full">
-                <Award className="w-5 h-5 text-accent" />
-              </div>
-              <div>
-                <div className="text-xl md:text-2xl font-serif font-bold text-primary-foreground">100%</div>
-                <div className="text-xs md:text-sm text-primary-foreground/70 whitespace-nowrap">Client Satisfaction</div>
-              </div>
+            <div className="hidden md:flex flex-col items-center">
+              <div className="text-3xl font-bold text-white mb-1">ISO 27001</div>
+              <div className="text-xs uppercase tracking-widest text-slate-500 font-bold">Compliance</div>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center"
-        >
-          <motion.div className="w-1.5 h-3 bg-primary-foreground/50 rounded-full mt-2" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

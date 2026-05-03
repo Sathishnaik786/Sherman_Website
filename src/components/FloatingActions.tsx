@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronUp, PhoneCall } from 'lucide-react';
-import whatsappIcon from '@/assets/logos/whatsup.png';
+import { ChevronUp, PhoneCall, Mail } from 'lucide-react';
 
 export default function FloatingActions() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,33 +33,31 @@ export default function FloatingActions() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed left-6 bottom-6 w-14 h-14 bg-primary text-primary-foreground rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90 transition-all duration-300 z-50"
+          className="fixed left-6 bottom-6 w-14 h-14 bg-background border border-border text-foreground rounded-2xl shadow-2xl flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-500 z-50 glass-effect"
           aria-label="Scroll to top"
         >
           <ChevronUp className="w-6 h-6" />
         </button>
       )}
 
-      {/* Right Side - WhatsApp and Call */}
-      <div className="fixed right-6 bottom-6 flex flex-col gap-3 z-50">
+      {/* Right Side - Support and Call */}
+      <div className="fixed right-6 bottom-6 flex flex-col gap-4 z-50">
         {/* Call Button */}
         <a
           href="tel:918367447870"
-          className="w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition-all duration-300"
-          aria-label="Call us"
+          className="w-14 h-14 bg-accent text-white rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center justify-center hover:scale-110 transition-all duration-300"
+          aria-label="Call Expert"
         >
           <PhoneCall className="w-6 h-6" />
         </a>
         
-        {/* WhatsApp Button */}
+        {/* Email/Support Button */}
         <a
-          href="https://wa.me/918367447870"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-14 h-14 bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-green-700 transition-all duration-300"
-          aria-label="Chat on WhatsApp"
+          href="mailto:solutions@xyzinfra.tech"
+          className="w-14 h-14 bg-slate-900 text-white rounded-2xl shadow-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 border border-white/10"
+          aria-label="Email Spec"
         >
-          <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-cover rounded-full" />
+          <Mail className="w-6 h-6" />
         </a>
       </div>
     </>

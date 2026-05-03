@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/logos/logo.jpeg';
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
+  { name: 'Solutions', path: '/solutions' },
+  { name: 'Industries', path: '/industries' },
+  { name: 'Technology', path: '/technology' },
   { name: 'Projects', path: '/projects' },
-  { name: 'Gallery', path: '/gallery' },
+  { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -51,30 +52,31 @@ export function Navbar() {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-background/95 backdrop-blur-lg shadow-md py-3' 
-            : 'bg-transparent py-5'
+            ? 'bg-background/80 backdrop-blur-xl shadow-2xl border-b border-border/50 py-3' 
+            : 'bg-transparent py-6'
         }`}
       >
         <div className="luxury-container">
           <nav className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <div className={`font-serif text-2xl md:text-3xl font-bold tracking-tight transition-colors ${
-                isScrolled ? 'text-primary' : 'text-primary-foreground'
+            <Link to="/" className="flex items-center gap-2">
+              <Shield className={`w-8 h-8 transition-colors ${isScrolled ? 'text-accent' : 'text-white'}`} />
+              <div className={`text-2xl font-black tracking-tighter transition-colors ${
+                isScrolled ? 'text-foreground' : 'text-white'
               }`}>
-                XYZ Fencing
+                XYZ INFRA
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`link-underline text-sm font-medium tracking-wide transition-colors ${
-                    isScrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
-                  } ${location.pathname === link.path ? 'font-semibold' : ''}`}
+                  className={`text-xs font-bold uppercase tracking-[0.2em] transition-all hover:text-accent ${
+                    isScrolled ? 'text-foreground/70' : 'text-white/80'
+                  } ${location.pathname === link.path ? 'text-accent' : ''}`}
                 >
                   {link.name}
                 </Link>
@@ -85,15 +87,14 @@ export function Navbar() {
             <div className="flex items-center gap-4">
               <Link to="/contact" className="hidden md:block">
                 <Button 
-                  variant={isScrolled ? "default" : "outline"}
-                  className={`${
+                  size="sm"
+                  className={`rounded-full px-6 font-bold uppercase tracking-widest text-[10px] h-10 ${
                     !isScrolled 
-                      ? 'border-white text-black hover:bg-white hover:text-primary' 
-                      : 'bg-accent hover:bg-accent/90 text-accent-foreground'
+                      ? 'bg-white text-black hover:bg-accent hover:text-white' 
+                      : 'bg-accent hover:bg-accent/90 text-white'
                   }`}
                 >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Get Quote
+                  Get Spec
                 </Button>
               </Link>
 
