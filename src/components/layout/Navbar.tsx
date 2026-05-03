@@ -58,7 +58,7 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className={`glass rounded-full px-10 py-3 flex items-center justify-between transition-all duration-500 ${
+          <div className={`glass rounded-full px-5 md:px-10 py-3 flex items-center justify-between transition-all duration-500 ${
             isScrolled || activeMenu ? 'shadow-2xl border-white/10' : 'border-transparent'
           }`}>
             {/* Logo */}
@@ -66,7 +66,7 @@ export function Navbar() {
               <img 
                 src="/akiko-sherman-logo.png" 
                 alt="Akiko Sherman Infotech" 
-                className="h-8 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                className="h-6 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
               />
             </Link>
 

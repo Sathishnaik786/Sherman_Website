@@ -17,19 +17,21 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-10 border-white/10"
+          className="inline-flex items-center gap-2 glass rounded-full px-4 md:px-6 py-2 mb-8 md:mb-10 border-white/10 mx-auto"
         >
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/80">Innovation Excellence Since 1999</span>
+          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse" />
+          <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.15em] md:tracking-[0.3em] text-white/80 whitespace-nowrap">
+            Innovation Excellence Since 1999
+          </span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9]"
+          className="text-4xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[1.1] md:leading-[0.9]"
         >
-          Transforming Enterprises <br />
+          Transforming Enterprises <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-accent">
             with AI & Digital Innovation
           </span>
